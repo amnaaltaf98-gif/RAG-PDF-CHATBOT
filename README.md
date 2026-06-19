@@ -70,3 +70,20 @@ rag-pdf-chatbot/
 2. Click **Index PDFs** and wait for confirmation
 3. Type your question in the chat box
 4. Get answers grounded in your documents
+
+## Example Chat
+
+Indexed: Apple 10-K filings (2013–2025)
+
+> **Q: What was Apple's total net sales for the fiscal year ended September 27, 2025?**
+> Apple's total net sales for the fiscal year ended September 27, 2025, was $416,161 million. (Source: aapl-20250927-2025.pdf)
+
+> **Q: Compare iPhone net sales between 2024 and 2025. Did they increase or decrease?**
+> iPhone net sales increased by 4% in 2025 compared to 2024, from $201,183 million to $209,586 million. (Source: aapl-20250927-2025.pdf, aapl-20240928-2024.pdf)
+
+> **Q: Provide Apple's exact total net sales for the fiscal years 2013, 2018, and 2025 as reported in their respective 10-K filings.**
+> - 2018: $265,595 million (source: 2018.pdf)
+> - 2025: $416,161 million (source: aapl-20250927-2025.pdf)
+> - 2013: not explicitly stated in the retrieved context — only the year-over-year change ($14.4B increase) was found.
+
+The chatbot automatically detects years mentioned in a question (e.g. "2025", "2018") and restricts retrieval to the matching 10-K filings, pulling chunks evenly across each one — which is why multi-year comparison questions return sources from all relevant files.
