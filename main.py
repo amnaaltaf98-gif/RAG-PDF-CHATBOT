@@ -8,6 +8,7 @@ Entry point. Run with:
     python main.py --share       # Gradio public share link
 """
 
+import utils.session
 import argparse
 from dotenv import load_dotenv
 
